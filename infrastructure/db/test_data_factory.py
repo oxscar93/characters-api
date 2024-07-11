@@ -19,7 +19,7 @@ class TestDataFactory():
 
     def get_characters(self, count=50):
         result = []
-        for i in range(count):
+        for i in range(1, count + 1):
             result.append(self.create_character(i))
          
         return result
