@@ -9,6 +9,3 @@ class CharacterModel(db.Model):
     skin_color = db.Column(db.String(100), nullable=False) 
     eye_color = db.Column(db.String(100), nullable=False)
     birth_year = db.Column(db.Integer, nullable=False)
-
-    def __init__(self):
-        pass

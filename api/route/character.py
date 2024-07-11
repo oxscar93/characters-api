@@ -1,9 +1,10 @@
 from http import HTTPStatus
-from flask import Blueprint, jsonify
+from flask import Blueprint, jsonify, request
 from flasgger import swag_from
+from api.request import get_request
 from api.response import create_response, create_simple_message_response
 from infrastructure.model.character import CharacterModel
-from api.schema.character import CharacterAllSchema, CharacterGetSchema, characters_all_schema, character_get_schema
+from api.schema.character import CharacterAllSchema, CharacterSchema, characters_all_schema, character_get_schema
 from flasgger.marshmallow_apispec import schema2jsonschema
 
 from services.character import CharacterService
@@ -36,7 +37,7 @@ def get_all():
     'responses': {
         HTTPStatus.OK.value: {
             'description': 'get character by id',
-            'schema': schema2jsonschema(CharacterGetSchema)
+            'schema': schema2jsonschema(CharacterSchema)
         }
     }
 })
@@ -44,6 +45,24 @@ def get(id):
     character = character_service.get(id)
     return create_response(character, character_get_schema, HTTPStatus.OK)
 
+
+@character_api.route('/add', methods=['POST'])
+@swag_from({
+    'parameters': [{
+        'name': 'body',
+        'in': 'body',
+        'schema': schema2jsonschema(CharacterSchema)
+    }],
+    'responses': {
+        HTTPStatus.OK.value: {
+            'description': 'add a character based on the incoming body'
+        }
+    }
+})
+def add():
+    character_request = get_request(request.json, character_get_schema)
+    saved_character = character_service.add(character_request) 
+    return create_response(saved_character, character_get_schema, HTTPStatus.OK)
 
 @character_api.route('/delete/<int:id>', methods=['DELETE'])
 @swag_from({
