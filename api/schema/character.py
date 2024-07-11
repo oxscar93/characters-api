@@ -10,7 +10,7 @@ class CharacterBaseSchema(Schema):
     eye_color = fields.Str(required=True, validate=validate.Length(min=1, max=100))
     birth_year = fields.Int(required=True, validate=validate.Range(min=1))
 
-class CharacterAllSchema(CharacterBaseSchema):
+class AllCharacterSchema(CharacterBaseSchema):
     pass
 
 class CharacterSchema(CharacterBaseSchema):
@@ -18,5 +18,3 @@ class CharacterSchema(CharacterBaseSchema):
     skin_color = fields.Str(required=True, validate=validate.Length(min=1, max=100))
     
 
-character_get_schema = CharacterSchema()
-characters_all_schema = CharacterAllSchema(many=True)
