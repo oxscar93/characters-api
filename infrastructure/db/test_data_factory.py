@@ -1,6 +1,6 @@
 from faker import Faker
 
-from api.model.character import CharacterModel
+from infrastructure.model.character import CharacterModel
 fake = Faker()
 
 class TestDataFactory():

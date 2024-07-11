@@ -1,5 +1,4 @@
-from api.db.test_data_factory import TestDataFactory
-from api.model.character import CharacterModel
+from infrastructure.db.test_data_factory import TestDataFactory
 from . import db
 
 test_data_factory = TestDataFactory()

@@ -1,4 +1,4 @@
-from api.db import db
+from infrastructure.db import db
 
 class CharacterModel(db.Model):
     id = db.Column(db.Integer, primary_key=True)
