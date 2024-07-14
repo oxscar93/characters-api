@@ -27,7 +27,7 @@ def get_all():
     characters = character_service.getAll()
     return create_response(characters, all_characters_schema, HTTPStatus.OK)
 
-#get
+#get by id
 @character_api.route('/get/<int:id>')
 @swag_from({
     'parameters': [{
@@ -66,7 +66,7 @@ def add():
     saved_character = character_service.add(character_request) 
     return create_response(saved_character, character_schema, HTTPStatus.OK)
 
-#delete
+#delete by id
 @character_api.route('/delete/<int:id>', methods=['DELETE'])
 @swag_from({
     'parameters': [{

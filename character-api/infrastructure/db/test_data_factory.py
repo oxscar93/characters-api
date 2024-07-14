@@ -5,6 +5,7 @@ fake = Faker()
 
 class TestDataFactory():
     def create_character(self, id):
+        #create a character based on faker library random values
         character = CharacterModel()
         character.id = id
         character.name= fake.name()
@@ -18,6 +19,7 @@ class TestDataFactory():
         return character
 
     def get_characters(self, count=50):
+        #create test characters according to the given count
         result = []
         for i in range(1, count + 1):
             result.append(self.create_character(i))

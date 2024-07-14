@@ -4,8 +4,8 @@ from marshmallow import ValidationError
 
 from domain.exceptions import EntityAlreadyExists, NotFoundException
 
-
 def register_error_handlers(app):
+    #create the needed error handlers to handle custom errors globally in the entire API.
     def handle_custom_exception(error):
         response = {
             'error': 'An exception has ocurred',

@@ -7,9 +7,11 @@ class CharacterService():
     character_repository = CharacterRepository()
 
     def getAll(self):
+        #get all characters
         return self.character_repository.getAll()
     
     def get(self, id):
+        #get character by id
         character = self.character_repository.get(id)
 
         if (character is None):
@@ -18,6 +20,7 @@ class CharacterService():
         return character  
     
     def add(self, character_request):
+        #add a character if not exists
         existing_character = self.character_repository.get(character_request['id'])
 
         if (existing_character is not None):
@@ -27,5 +30,6 @@ class CharacterService():
         return self.get(character_request['id'])
     
     def delete(self, id):
+        #delete character if it exists
         character = self.get(id)
         return self.character_repository.delete(character)

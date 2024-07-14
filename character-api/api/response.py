@@ -7,4 +7,5 @@ def create_response(item=None, schema=None, status_code=200):
     
 
 def create_simple_message_response(message=None,status_code=200):
+    #create a simple response when only a text is required to return
     return message, status_code
