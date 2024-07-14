@@ -3,7 +3,7 @@
 # Installation
 
 Make sure you have the latest python 3 version installed. This project runs with python >= 3.12.4  
-Run `run python -m pipenv install`
+Run `python -m pipenv install`
 
 
 
