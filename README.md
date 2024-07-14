@@ -14,12 +14,12 @@ As default, the API will start on port 5000 and a SQLite database will be create
 
 # Docker installation
 
-Go to the base directory and run `docker build -t character_api .` 
+Go to the base directory (/character-api) and run `docker build -t character_api .` 
 
 
 # Docker startup
 
-After building the image, go to the base directory and Run `docker run -p 5000:5000 character_api`
+After building the image, go to the base directory (/character-api) and run `docker run -p 5000:5000 character_api`
 
 
 # Api documentation
