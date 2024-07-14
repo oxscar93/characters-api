@@ -13,4 +13,4 @@ RUN pipenv install --system --deploy
 
 EXPOSE 5000
 
-CMD ["gunicorn", "--graceful-timeout", "5", "--chdir", ".", "app:create_app()",  "-w", "4", "-b", "0.0.0.0:5000"]
+CMD ["gunicorn", "--graceful-timeout", "5", "--chdir", ".", "app:create_app()",  "-w", "1", "-b", "0.0.0.0:5000"]
