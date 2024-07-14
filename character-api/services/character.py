@@ -21,13 +21,14 @@ class CharacterService():
     
     def add(self, character_request):
         #add a character if not exists
-        existing_character = self.character_repository.get(character_request['id'])
+        character_id = character_request['id']
+        existing_character = self.character_repository.get(character_id)
 
         if (existing_character is not None):
             raise EntityAlreadyExists()
         
         self.character_repository.add(CharacterModel(**character_request))
-        return self.get(character_request['id'])
+        return self.get(character_id)
     
     def delete(self, id):
         #delete character if it exists
