@@ -8,7 +8,7 @@ Run `run python -m pipenv install`
 
 
 # Startup
-Run `python -m pipenv run python -m flask run`.  
+Run `python -m pipenv run python -m flask run`  
 As default, the API will start on port 5000 and a SQLite database will be created by default if not exists in the base directory.
 
 
